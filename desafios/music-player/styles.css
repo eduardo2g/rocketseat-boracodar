@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #0f0d13;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  line-height: 0;
+  border: none;
+}
+
+img {
+  object-fit: cover;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-template-rows: fit-content;
+  column-gap: 32px;
+}
+
+.container .player {
+  background-color: #2a2141;
+  border-radius: 9.6px;
+}
+
+.container .player img {
+  border-radius: 6px;
+}
+
+.container .player .info-music h1 {
+  font-size: 24px;
+  color: #e1e1e6;
+  transition: 0.3s;
+}
+
+.container .player .info-music span {
+  display: block;
+  font-size: 19px;
+  color: rgba(225, 225, 230, 0.67);
+  margin-top: 9.6px;
+  transition: 0.3s;
+}
+
+.container .player .buttons {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .player .track-time {
+  margin-top: 28px;
+  font-size: 14px;
+  color: rgba(196, 196, 204, 0.7);
+}
+.container .player .track-time .track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  border-radius: 9.6px;
+  background-color: rgba(217, 217, 217, 0.3);
+}
+
+.container .player .track-time .track::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  background-color: #d9d9d9;
+  border-radius: 9.6px;
+}
+
+.container .player .track-time .time {
+  margin-top: 9.6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container #player01 {
+  padding: 50px 38px;
+}
+
+.container #player01 img {
+  max-width: 190px;
+  height: 190px;
+}
+
+.container #player01 .info-music {
+  margin-top: 28px;
+}
+
+.container aside {
+  display: grid;
+  row-gap: 32px;
+}
+
+.container aside #player02,
+.container aside #player03 {
+  padding: 28px;
+}
+.container aside :is(#player02, #player03) .buttons {
+  justify-content: space-evenly;
+}
+
+.container aside :is(#player02, #player03) header {
+  display: flex;
+  align-items: center;
+  column-gap: 28px;
+}
+
+.container aside :is(#player02, #player03) header .info-music {
+  width: 100%;
+}
+
+.container aside > * img {
+  max-width: 84px;
+  height: 84px;
+}
+
+@media (max-width: 667px) {
+  .container {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    margin: 30px;
+  }
+
+  .container #player01 {
+    display: flex;
+    flex-direction: column;
+  }
+  .container #player01 img {
+    max-width: 100%;
+
+    height: auto;
+    align-self: center;
+  }
+}
+
+@media (max-width: 413px) {
+  .container :is(.player) .info-music h1 {
+    font-size: 20px;
+  }
+  .container :is(.player) .info-music span {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 383px) {
+  .container aside > * header {
+    flex-direction: column;
+  }
+  .container aside > * img {
+    max-width: 100%;
+
+    height: auto;
+  }
+
+  .container aside > * header .info-music {
+    margin-top: 28px;
+  }
+
+  .container aside :is(#player02, #player03) .buttons {
+    justify-content: space-around;
+  }
+}
