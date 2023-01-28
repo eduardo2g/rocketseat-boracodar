@@ -10,7 +10,7 @@
 :root {
   --card-size: 350px;
   --column-count: 3;
-  --gap: 60px;
+  --gap: 30px;
 }
 
 body {
@@ -21,6 +21,12 @@ body {
 a {
   text-decoration: none;
 }
+
+img {
+  display: block;
+  width: 100%;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -44,11 +50,16 @@ a {
   color: #fff;
 }
 .container-projects {
-  max-width: calc(var(--card-size) * var(--column-count) + var(--gap));
+  --space-between-columns: calc(var(--column-count) - 1);
+
+  max-width: calc(
+    var(--card-size) * var(--column-count) +
+      calc(var(--gap) * var(--space-between-columns))
+  );
   display: flex;
 
   flex-wrap: wrap;
-  gap: 30px;
+  gap: var(--gap);
   margin: 30px 20px 0;
 }
 
@@ -76,7 +87,6 @@ a {
 
 .container-projects .project .image img {
   max-width: 350px;
-  width: 100%;
 }
 
 .container-projects .project .details {
@@ -92,7 +102,6 @@ a {
 @media (max-width: 1149px) {
   .container-projects {
     --column-count: 2;
-    --gap: 30px;
   }
 }
 
@@ -107,6 +116,5 @@ a {
 
   .container-projects {
     --column-count: 1;
-    --gap: 0px;
   }
 }
